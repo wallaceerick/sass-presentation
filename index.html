@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Apresentação Sass | O CSS com Super Poderes!</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme" />
+		<link rel="stylesheet" href="css/theme/custom.css" />
+		<link rel="shortcut icon" href="lib/img/favicon.ico"  type="image/x-icon" />
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' ); 
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="stripes top"></div>
+		<div class="stripes bottom"></div>
+
+		<div class="reveal">
+			<div class="sass"></div> 
+
+			<div class="slides">
+				<section>
+					<img src="lib/img/sass.png" alt="Sass" class="logo" />
+					<h3>O CSS com Super Poderes!</h3>
+					<p class="big">
+						<small>por <a class="linkster" href="http://www.guilhermeventura.com.br">Guilherme Ventura</a> e <a class="linkster" href="http://www.wallaceerick.com.br">Wallace Erick</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>O que é Sass?</h2>
+						<p>O Sass é uma <span>'linguagem'</span> desenvolvida para 
+extender o poder  do CSS.</p>
+						<p>Ele é o equivalente ao PHP para o CSS.</p>
+						<p>Você já vai entender melhor isso! :)</p> 
+					</section>
+
+					<section>
+						<h2>Porque Usar?</h2>
+						<p>O Sass tem diversas funcionalidades interessantes para os desenvolvedores de CSS.</p> 
+					</section>
+
+					<section>
+						<h2>Problemas Solucionados</h2>
+						<p>Já imaginou CSS com variavéis?</p>
+						<p>Já sonhou com o dia em que escreveria uma function() pra facilitar sua vida nas folhas de estilos?</p>
+						<p>IF/ELSE???? <br /> Loops????</p>
+						<h3>Sim? Então segura!</h3> 
+					</section>
+				</section>
+ 
+				<section>
+					<section>
+						<h2>Sintaxes</h2>
+						<p>O Sass possui dois estilos diferentes de sintaxe:</p>
+						<p>.sass<br />.scss</p>
+					</section>
+					<section>
+						<h2>.SASS</h2>
+						<p>É a forma clássica de escrita, era o formato <span>default</span> nas primeiras versões.</p>
+						<p>Não se usam chaves ou ponto-e-vírgula, e é necessário seguir um padrão de identação do código no documento todo, <strong>OU ELE NÃO COMPILA</strong>.</p>
+						<pre>
+<span class="tag">article</span>
+    <span class="property">width:</span> <span class="value">950<span class="unit">px</span></span>
+    <span class="property">margin:</span> <span class="value">0 auto</span>
+    <span class="property">background-color:</span> <span class="value">#F00</span>
+<span class="tag">header</span>
+    <span class="property">width:</span> <span class="value">100<span class="unit">%</span></span>
+    <span class="property">height:</span> <span class="value">50<span class="unit">px</span></span>
+    <span class="property">background-color:</span> <span class="value">blue</span>
+						</pre>   
+					</section>
+					<section>
+						<h2>.SCSS</h2>
+						<p>Nada contra o .sass, mas a sintaxe diferenciada gerava muitos problemas com desenvolvedores inexperientes, ou grandes equipes de desenvolvimento, que usavam editores, e medidas de identação diferentes nos projetos.</p>
+						<p>Ai surgiu o .scss, com uma sintaxe bastante semelhante ao CSS normal, com chaves, ponto-e-vírgula, e sem regras de identação pra compilar.</p>
+						<pre>
+<span class="tag">article</span> <span class="key">{</span>
+    <span class="property">width:</span> <span class="value">950<span class="unit">px</span></span><span class="key">;</span>
+    <span class="property">margin:</span> <span class="value">0 auto</span><span class="key">;</span>
+    <span class="property">background-color:</span> <span class="value">#F00</span><span class="key">;</span>
+<span class="key">}</span>
+<span class="tag">header</span> <span class="key">{</span>
+    <span class="property">width:</span> <span class="value">100<span class="unit">%</span></span><span class="key">;</span>
+    <span class="property">height:</span> <span class="value">50<span class="unit">px</span></span><span class="key">;</span>
+    <span class="property">background-color:</span> <span class="value">red</span><span class="key">;</span>
+<span class="key">}</span>
+						</pre> 
+					</section> 
+				</section>
+
+				<section>
+					<section>
+						<h2>Instalação</h2>
+						<p>O Sass depende de uma linguagem server-side pra fornecer todas as funcionalidades. Existem algumas formas de se instalar, mas vamos abordar a principal, que usa...</p>
+						<h3>Ruby!</h3>
+					</section> 
+					<section>
+						<h2>Ruby</h2>
+						<p>O Ruby vem instalado por default no OSX, porém, no windows é necessária a instalação manual, ou, faça mais fácil: Baixe o  <a href="http://rubyinstaller.org/">RubyInstaller</a>.</p>
+						<p>Bom, após ter o ruby instalado, instalar o Sass é simples:</p>
+						<pre><span class="var">$</span> <span class="key">gem install sass</span></pre>
+						<p>Provavelmente você vai precisar de permissão de superuser no OSX pra instalar, então não esqueça do sudo. :)</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Funcionalidades <br /> Básicas</h2>
+						<ul>
+							<li>Variavéis</li>
+							<li>Nesting</li>
+							<li>Extend</li>
+							<li>Mixins</li>
+							<li>Operações Aritméticas</li> 
+						</ul>
+					</section>
+
+					<section>
+						<h2>Variavéis</h2>
+						<p>Só por conta deste recurso, o Sass já valeria muito a pena.</p>
+						<pre>
+<span class="key">$main-color:</span> <span class="value">#f00</span><span class="key">;</span>
+<span class="key">$grid-gutter:</span> <span class="value">20<span class="unit">px</span></span><span class="key">;</span>
+<span class="key">$container-width:</span> <span class="value">100<span class="unit">px</span></span><span class="key">;</span></pre>
+						<p>Perceba que vários tipos de valores podem ser armazenados: códigos hexadecimais, unidades de medida, etc.</p>
+					</section>
+
+					<section>
+						<h2 class="no-margin">Nesting</h2>
+						<h6>Regra Básica</h6>
+						<p>O Nesting é um recurso que poupa muito tempo dos desenvolvedores, veja abaixo um exemplo comum no dia a dia CSS.</p>
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre>
+<span class="tag">article</span> <span class="key">{</span>
+    <span class="tag">header</span><span class="key">,</span> <span class="tag">section</span> <span class="key">{</span>
+        <span class="property">background-color:</span> <span class="value">blue</span><span class="key">;</span>
+    <span class="key">}</span>
+<span class="key">}</span></pre> 
+						</div> 
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre>
+<span class="tag">article header</span><span class="key">,</span> <span class="tag">article section</span> <span class="key">{</span>
+    <span class="property">background-color:</span> <span class="value">blue</span><span class="key">;</span> 
+<span class="key">}</span>
+					</pre> 
+						</div> 
+
+					</section>
+					<section>
+						<h2 class="no-margin">Nesting</h2>
+						<h6>Symbol Selector</h6>
+						<p>O Nesting permite o uso de todos os seletores disponíveis no CSS.</p>
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre>
+<span class="tag">article</span> <span class="key">{</span>
+    <span class="key">+</span> <span class="tag">h2</span>     <span class="key">{</span><span class="property">background:</span> <span class="value">blue</span><span class="key">;</span><span class="key">}</span>
+    <span class="key">></span> <span class="tag">header</span> <span class="key">{</span><span class="property">width:</span> <span class="value">100</span><span class="unit">%</span><span class="key">;</span><span class="key">}</span>
+    <span class="key">~</span> <span class="tag">footer</span> <span class="key">{</span><span class="property">width:</span> <span class="value">80</span><span class="unit">%</span><span class="key">;</span><span class="key">}</span>
+<span class="key">}</span>
+				
+
+
+				</pre>
+						</div> 
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre>
+<span class="tag">article</span> <span class="key">+</span> <span class="tag">h2</span> <span class="key">{</span>
+    <span class="property">background-color:</span> <span class="value">blue</span><span class="key">;</span> 
+<span class="key">}</span>
+<span class="tag">article</span> <span class="key">></span> <span class="tag">header</span> <span class="key">{</span>
+    <span class="property">width:</span> <span class="value">100</span><span class="unit">%</span><span class="key">;</span>
+<span class="key">}</span>
+<span class="tag">article</span> <span class="key">~</span> <span class="tag">footer</span> <span class="key">{</span>
+    <span class="property">width:</span> <span class="value">80</span><span class="unit">%</span><span class="key">;</span>
+<span class="key">}</span></pre> 
+						</div> 
+					</section>
+
+					<section>
+						<h2 class="no-margin">Nesting</h2>
+						<h6>Parent Selector</h6>
+						<p>Fazendo referência ao elemento pai.</p>
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre>
+<span class="tag">a</span> <span class="key">{</span>
+    <span class="property">display:</span> <span class="value">inline-block</span><span class="key">;</span>
+    <span class="property">color:</span> <span class="value">white</span><span class="key">;</span>
+    <span class="property">background:</span> <span class="value">blue</span><span class="key">;</span>
+        <span class="value">&amp;</span><span class="key">:</span><span class="tag">hover</span> <span class="key">{</span>
+        <span class="property">background:</span> <span class="value">red</span><span class="key">;</span>
+    <span class="key">}</span>
+<span class="key">}</span></pre>
+						</div> 
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre>
+<span class="tag">a</span> <span class="key">{</span>
+    <span class="property">display:</span> <span class="value">inline-block</span><span class="key">;</span>
+    <span class="property">color:</span> <span class="value">white</span><span class="key">;</span>
+    <span class="property">background:</span> <span class="value">blue</span><span class="key">;</span>
+<span class="key">}</span>
+<span class="tag">a</span><span class="key">:</span><span class="tag">hover</span> <span class="key">{</span>
+    <span class="property">background:</span> <span class="value">red</span><span class="key">;</span>
+<span class="key">}</span>
+</pre>
+						</div> 
+					</section>
+
+					<section>
+						<h2 class="no-margin">Nesting</h2>
+						<h6>Parent Selector</h6>
+						<p>Adicionando um contexto ao seletor.</p>
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre>
+<span class="tag">article</span> <span class="key">{</span>
+    <span class="tag">h1</span> <span class="key">{</span>
+        <span class="property">color:</span> <span class="value">blue</span><span class="key">;</span>
+    <span class="key">}</span>
+    <span class="class">.red-content</span> <span class="value">&amp;</span> <span class="key">{</span>
+        <span class="property">color:</span> <span class="value">red</span><span class="key">;</span>
+    <span class="key">}</span>
+<span class="key">}</span></pre>
+						</div> 
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre>
+<span class="tag">article h1</span> <span class="key">{</span>
+    <span class="property">color:</span> <span class="value">blue</span><span class="key">;</span>
+<span class="key">}</span>
+<span class="class">.red-content</span> <span class="tag">article h1</span> <span class="key">{</span>
+    <span class="property">color:</span> <span class="value">red</span><span class="key">;</span>
+<span class="key">}</span>
+
+
+</pre>
+						</div> 
+					</section>
+
+					<section>
+						<h2>Extend</h2>
+						<p>O extend é um recurso que possibilita um seletor herdar os estilos de outro.</p>
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre>
+<span class="class">.button</span> <span class="key">{</span>
+    <span class="property">width:</span> <span class="value">950<span class="unit">px</span></span><span class="key">;</span>
+    <span class="property">margin:</span> <span class="value">0 auto</span><span class="key">;</span>
+    <span class="property">background-color:</span> <span class="value">blue</span><span class="key">;</span>
+<span class="key">}</span> 
+<span class="class">.button-red</span> <span class="key">{</span>
+    <span class="tag">@extend</span> <span class="class">.button</span><span class="key">;</span> 
+    <span class="property">background-color:</span> <span class="value">red</span><span class="key">;</span>
+<span class="key">}</span></pre> 
+						</div>
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre>
+<span class="class">.button</span><span class="key">,</span> <span class="class">.button-red</span> <span class="key">{</span>
+    <span class="property">width:</span> <span class="value">950<span class="unit">px</span></span><span class="key">;</span>
+    <span class="property">margin:</span> <span class="value">0 auto</span><span class="key">;</span>
+    <span class="property">background-color:</span> <span class="value">blue</span><span class="key">;</span>
+<span class="key">}</span> 
+<span class="class">.button-red</span> <span class="key">{</span> 
+    <span class="property">background-color:</span> <span class="value">red</span><span class="key">;</span>
+<span class="key">}</span>
+ </pre>
+					</div>
+					</section>
+
+					<section>
+						<h2>Mixins</h2>
+						<p>Mixins são funções que podem ser reutilizadas em todo o documento. Primeiro se declara o mixin, e depois se invoca no trecho de código onde ele deve ser executado.</p>
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre>
+<span class="comment">// Declarando o Mixin</span>
+<span class="tag">@mixin</span> <span class="class">hovered</span> <span class="key">{</span>
+    <span class="property">text-decoration:</span> <span class="value">none</span><span class="key">;</span>
+    <span class="unit">&amp;</span><span class="key">:</span><span class="class">hover</span> <span class="key">{</span>
+         <span class="property">text-decoration:</span> <span class="value">underline</span><span class="key">;</span>
+    <span class="key">}</span>
+<span class="key">}</span>
+<span class="comment">// Invocando no seletor</span>
+<span class="tag">nav a</span> <span class="key">{</span>
+    <span class="property">color:</span> <span class="value">blue</span><span class="key">;</span>
+    <span class="unit">@include</span> <span class="class">hovered</span><span class="key">;</span>
+<span class="key">}</span>
+
+</pre> 
+						</div>
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre>	
+<span class="tag">nav a</span> <span class="key">{</span>
+    <span class="property">color:</span> <span class="value">blue</span><span class="key">;</span>
+    <span class="property">text-decoration:</span> <span class="value">none</span><span class="key">;</span>
+<span class="key">}</span> 
+<span class="tag">nav a</span><span class="key">:</span><span class="class">hover</span> <span class="key">{</span>
+    <span class="property">text-decoration:</span> <span class="value">underline</span><span class="key">;</span>
+<span class="key">}</span>
+
+
+
+
+
+</pre>
+					</div>
+
+					</section>
+
+					<section>
+						<h2>Mixins</h2>	
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre>
+<span class="comment">// Declarando o Mixin</span>
+<span class="tag">@mixin</span> <span class="class">border-radius</span><span class="key">(</span><span class="par">$amount</span><span class="key">)</span> <span class="key">{</span>
+    <span class="property">border-radius:</span> <span class="par">$amount</span><span class="key">;</span>
+    <span class="property">-moz-border-radius:</span> <span class="par">$amount</span><span class="key">;</span>
+    <span class="property">-webkit-border-radius:</span> <span class="par">$amount</span><span class="key">;</span>
+<span class="key">}</span>
+<span class="comment">// Invocando no seletor</span>
+<span class="class">.button</span> <span class="key">{</span>
+    <span class="property">color:</span> <span class="value">blue</span><span class="key">;</span>
+    <span class="unit">@include</span> <span class="property">border-radius</span><span class="key">(</span><span class="value">5<span class="unit">px</span></span><span class="key">)</span><span class="key">;</span>
+<span class="key">}</span></pre> 
+						</div>
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre>	
+<span class="class">.button</span> <span class="key">{</span>
+    <span class="property">color:</span> <span class="value">blue</span><span class="key">;</span>
+    <span class="property">border-radius:</span> <span class="value">5<span class="unit">px</span></span><span class="key">;</span>
+    <span class="property">-moz-border-radius:</span> <span class="value">5<span class="unit">px</span></span><span class="key">;</span>
+    <span class="property">-webkit-border-radius:</span> <span class="value">5<span class="unit">px</span></span><span class="key">;</span>
+<span class="key">}</span>
+
+
+
+
+</pre>
+					</div>
+
+					</section>
+
+					<section>
+						<h2>Mixins</h2>
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre>
+<span class="comment">// Declarando o Mixin</span>
+<span class="tag">@mixin</span> <span class="class">link</span><span class="key">(</span><span class="par">$text</span><span class="key">:</span><span class="property">blue</span><span class="key">,</span> <span class="par">$hover</span><span class="key">:</span><span class="property">red</span><span class="key">)</span><span class="key">{</span>
+    <span class="property">color:</span> <span class="par">$text</span><span class="key">;</span>
+    <span class="unit">&amp;</span><span class="key">:</span><span class="class">hover</span> <span class="key">{</span>
+         <span class="property">color:</span> <span class="par">$hover</span><span class="key">;</span>
+    <span class="key">}</span>
+<span class="key">}</span>
+<span class="comment">// Invocando no seletor</span>
+<span class="tag">a</span> <span class="key">{</span>
+    <span class="unit">@include</span> <span class="class">link</span><span class="key">(</span><span class="par">$text</span><span class="key">:</span> <span class="property">green</span><span class="key">);</span>
+<span class="key">}</span></pre> 
+						</div>
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre> 
+<span class="tag">a</span> <span class="key">{</span>
+    <span class="property">color:</span> <span class="value">green</span><span class="key">;</span>
+<span class="key">}</span> 
+<span class="tag">a</span><span class="key">:</span><span class="class">hover</span> <span class="key">{</span>
+    <span class="property">color:</span> <span class="value">red</span><span class="key">;</span>
+<span class="key">}</span>
+
+
+
+ </pre>
+					</div>
+
+					</section>
+
+					<section>
+						<h2>Operações Aritméticas</h2>
+						<p></p>
+
+							<pre style="width: 94%; margin-left: 1px;">
+<span class="property">5px</span> <span class="key">+</span> <span class="property">2px</span> <span class="comment">//7px</span>
+<span class="property">5px</span> <span class="key">-</span> <span class="property">2px</span> <span class="comment">//3px</span>
+<span class="property">4px</span> <span class="key">*</span> <span class="property">2</span>   <span class="comment">//8px</span>
+<span class="property">6px</span> <span class="key">/</span> <span class="property">2</span>  <span class="comment">//3px</span>
+<span class="property">18</span> <span class="key">%</span> <span class="property">5</span>   <span class="comment">//3</span></pre> 
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre><span class="key">$content:</span> <span class="value">960<span class="unit">px</span></span><span class="key">;</span>
+<span class="key">$main:</span> <span class="value">450<span class="unit">px</span></span><span class="key">;</span>
+
+<span class="tag">aside</span>  <span class="key">{</span>
+    <span class="property">width:</span> <span class="par">$content</span> <span class="key">-</span> <span class="par">$main</span><span class="key">;</span>
+    <span class="property">height:</span> <span class="value">auto</span><span class="key">;</span>
+<span class="key">}</span></pre> 
+						</div>
+
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre><span class="tag">aside</span> <span class="key">{</span>
+    <span class="property">width:</span> <span class="value">510</span><span class="unit">px</span><span class="key">;</span>
+    <span class="property">height:</span> <span class="value">auto</span><span class="key">;</span>
+<span class="key">}</span>
+
+
+
+</pre>
+					</div>
+					</section>
+				</section>
+					
+				<section>
+					<section>
+						<h2>Funcionalidades Avançadas</h2>
+						<ul>
+							<li>Loop</li>
+							<li>IF/ELSE</li>
+							<li>Color Functions</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Loop</h2>
+						<p>O sass possui suporte a 3 laços de repetição: @for, @each e @while. Abordadermos somente @for por enquanto.</p>
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre><span class="tag">@for</span> <span class="key">$i</span> <span class="tag">from</span> <span class="value">1</span> <span class="tag">through</span> <span class="value">5</span> <span class="key">{</span>
+    <span class="class">.box</span><span class="key">#($i){</span>
+        <span class="property">width</span><span class="key">:</span> <span class="value">100</span><span class="unit">px</span> <span class="key">* $i;</span>
+    <span class="key">}</span>
+<span class="key">}</span></pre> 
+						</div>
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre><span class="class">.box-1</span> <span class="key">{</span><span class="property">width</span><span class="key">:</span> <span class="value">100</span><span class="unit">px</span><span class="key">;</span><span class="key">}</span>
+<span class="class">.box-2</span> <span class="key">{</span><span class="property">width</span><span class="key">:</span> <span class="value">200</span><span class="unit">px</span><span class="key">;</span><span class="key">}</span>
+<span class="class">.box-3</span> <span class="key">{</span><span class="property">width</span><span class="key">:</span> <span class="value">300</span><span class="unit">px</span><span class="key">;</span><span class="key">}</span>
+<span class="class">.box-4</span> <span class="key">{</span><span class="property">width</span><span class="key">:</span> <span class="value">400</span><span class="unit">px</span><span class="key">;</span><span class="key">}</span>
+<span class="class">.box-5</span> <span class="key">{</span><span class="property">width</span><span class="key">:</span> <span class="value">500</span><span class="unit">px</span><span class="key">;</span><span class="key">}</span></pre> 
+						</div>
+					</section>
+
+					<section>
+						<h2>IF/ELSE</h2>
+						<p>IF/ELSE também podem ser utilizados, um exemplo clássico de uso, é sua aplicação dentro de um @mixin.</p>
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre><span class="tag">@mixin</span> <span class="class">box</span><span class="key">($color) {</span>
+    <span class="tag">@if</span> <span class="key">($color ==</span> <span class="par">"blue"</span><span class="key">) {</span>
+        <span class="property">background</span><span class="key">:</span> <span class="value">blue</span><span class="key">;</span>
+    <span class="key">}</span>
+    <span class="tag">@else</span> <span class="key">{</span>
+        <span class="property">background</span><span class="key">:</span> <span class="value">red</span><span class="key">;</span>
+    <span class="key">}</span> 
+<span class="key">}</span> 
+<span class="class">.box</span> <span class="key">{</span>
+    <span class="property">width</span><span class="key">:</span> <span class="value">100</span><span class="unit">%</span><span class="key">;</span>
+    <span class="property">height</span><span class="key">:</span> <span class="value">50</span><span class="unit">px</span><span class="key">;</span>
+    <span class="tag">@include</span> <span class="class">box</span><span class="key">(</span><span class="par">'green'</span><span class="key">);</span>
+    <span class="value">&amp;</span><span class="class">.azul</span> <span class="key">{</span>
+        <span class="tag">@include</span> <span class="class">box</span><span class="key">(</span><span class="par">'blue'</span><span class="key">);</span>
+    <span class="key">}</span> 
+<span class="key">}</span> 
+</pre> 
+						</div>
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre><span class="class">.box</span> <span class="key">{</span>
+    <span class="property">width</span><span class="key">:</span> <span class="value">100</span><span class="unit">%</span><span class="key">;</span>
+    <span class="property">height</span><span class="key">:</span> <span class="value">50</span><span class="unit">px</span><span class="key">;</span>
+    <span class="property">background</span><span class="key">:</span> <span class="value">red</span><span class="key">;</span>
+<span class="key">}</span>
+<span class="class">.box.azul</span> <span class="key">{</span>
+    <span class="property">background</span><span class="key">:</span> <span class="value">blue</span><span class="key">;</span>
+<span class="key">}</span>					
+
+
+
+
+
+
+
+</pre> 
+						</div>
+					</section>
+
+					<section>
+						<h2>Color Functions</h2>
+						<p>Utilizando as funções de cor, é possível manipulá-las facilmente.</p>
+
+
+						<div class="middle">
+							<h4>SASS</h4>
+							<pre><span class="key">$red:</span> <span class="value">#f00</span><span class="key">;</span>
+
+<span class="class">.red</span> <span class="key">{</span>
+    <span class="property">background</span><span class="key">:</span> <span class="key">$red</span><span class="key">;</span>
+<span class="key">}</span>
+<span class="class">.dark-red</span> <span class="key">{</span>
+    <span class="property">background</span><span class="key">:</span> <span class="property">darken</span><span class="key">(</span><span class="key">$red</span><span class="key">,</span> <span class="value">20</span><span class="unit">%</span><span class="key">);</span>
+<span class="key">}</span>
+</pre> 
+						</div>
+						<div class="middle">
+							<h4>CSS</h4>
+							<pre><span class="class">.red</span> <span class="key">{</span> 
+    <span class="property">background</span><span class="key">:</span> <span class="value">#f00</span><span class="key">;</span>
+<span class="key">}</span>
+<span class="class">.dark-red</span> <span class="key">{</span>
+    <span class="property">background</span><span class="key">:</span> <span class="value">#990</span><span class="key">;</span>
+<span class="key">}</span>					
+
+</pre> 
+						</div>
+					</section>
+				</section>
+				
+				<section>
+					<h2>Referências</h2>
+					<ul>
+						<li>
+							<a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html" target="_blank">Sass Documentation</a>
+						</li>
+						
+						<li>
+							<a href="http://joshbroton.com/my-sass-less-css-practices-modularization-nesting-variables-mixins-etc/" target="_blank">Best Practices</a>
+						</li>
+						
+						<li>
+							<a href="https://speakerdeck.com/imathis/sass-compass-the-future-of-stylesheets-now" target="_blank">Sass: The future of CSS</a>
+						</li>
+						
+						<li>
+							<a href="http://compass-style.org/reference/compass/" target="_blank">Compass</a>
+						</li>
+						
+						<li>
+							<a href="http://css-tricks.com/sass-style-guide/" target="_blank">Style Guide</a>
+						</li>
+						<li>
+							<a href="http://www.loiane.com/2012/03/curso-css3-com-sass-e-compass-aula-01-introducao/" target="_blank"> Curso: Sass + Compass</a>
+						</li>
+					</ul>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/fullscreen.js"></script>
+  
+		<script>
+
+			toggleFullScreen();
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+		<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+	</body>
+</html>

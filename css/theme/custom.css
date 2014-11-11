@@ -1,0 +1,70 @@
+body {
+  background: #dedede;
+  background: -moz-radial-gradient(center, circle cover, white 0%, #dedede 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, white), color-stop(100%, #dedede));
+  background: -webkit-radial-gradient(center, circle cover, white 0%, #dedede 100%);
+  background: -o-radial-gradient(center, circle cover, white 0%, #dedede 100%);
+  background: -ms-radial-gradient(center, circle cover, white 0%, #dedede 100%);
+  background: radial-gradient(center, circle cover, white 0%, #dedede 100%); }
+
+.stripes {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #cc6699), color-stop(8.33333%, #cc6699), color-stop(8.33333%, #b37399), color-stop(16.66667%, #b37399), color-stop(16.66667%, #998099), color-stop(25%, #998099), color-stop(25%, #669999), color-stop(33.33333%, #669999), color-stop(33.33333%, #d2e1dd), color-stop(41.66667%, #d2e1dd), color-stop(41.66667%, white), color-stop(50%, white), color-stop(50%, #f2ece4), color-stop(58.33333%, #f2ece4), color-stop(58.33333%, #e1d7d2), color-stop(66.66667%, #e1d7d2), color-stop(66.66667%, #dadbdf), color-stop(75%, #dadbdf), color-stop(75%, #808c99), color-stop(83.33333%, #808c99), color-stop(83.33333%, #6b717f), color-stop(91.66667%, #6b717f), color-stop(91.66667%, #003366), color-stop(100%, #003366));
+  background-image: -webkit-linear-gradient(left, #cc6699 0%, #cc6699 8.33333%, #b37399 8.33333%, #b37399 16.66667%, #998099 16.66667%, #998099 25%, #669999 25%, #669999 33.33333%, #d2e1dd 33.33333%, #d2e1dd 41.66667%, white 41.66667%, white 50%, #f2ece4 50%, #f2ece4 58.33333%, #e1d7d2 58.33333%, #e1d7d2 66.66667%, #dadbdf 66.66667%, #dadbdf 75%, #808c99 75%, #808c99 83.33333%, #6b717f 83.33333%, #6b717f 91.66667%, #003366 91.66667%, #003366 100%);
+  background-image: -moz-linear-gradient(left, #cc6699 0%, #cc6699 8.33333%, #b37399 8.33333%, #b37399 16.66667%, #998099 16.66667%, #998099 25%, #669999 25%, #669999 33.33333%, #d2e1dd 33.33333%, #d2e1dd 41.66667%, white 41.66667%, white 50%, #f2ece4 50%, #f2ece4 58.33333%, #e1d7d2 58.33333%, #e1d7d2 66.66667%, #dadbdf 66.66667%, #dadbdf 75%, #808c99 75%, #808c99 83.33333%, #6b717f 83.33333%, #6b717f 91.66667%, #003366 91.66667%, #003366 100%);
+  background-image: -o-linear-gradient(left, #cc6699 0%, #cc6699 8.33333%, #b37399 8.33333%, #b37399 16.66667%, #998099 16.66667%, #998099 25%, #669999 25%, #669999 33.33333%, #d2e1dd 33.33333%, #d2e1dd 41.66667%, white 41.66667%, white 50%, #f2ece4 50%, #f2ece4 58.33333%, #e1d7d2 58.33333%, #e1d7d2 66.66667%, #dadbdf 66.66667%, #dadbdf 75%, #808c99 75%, #808c99 83.33333%, #6b717f 83.33333%, #6b717f 91.66667%, #003366 91.66667%, #003366 100%);
+  background-image: linear-gradient(left, #cc6699 0%, #cc6699 8.33333%, #b37399 8.33333%, #b37399 16.66667%, #998099 16.66667%, #998099 25%, #669999 25%, #669999 33.33333%, #d2e1dd 33.33333%, #d2e1dd 41.66667%, white 41.66667%, white 50%, #f2ece4 50%, #f2ece4 58.33333%, #e1d7d2 58.33333%, #e1d7d2 66.66667%, #dadbdf 66.66667%, #dadbdf 75%, #808c99 75%, #808c99 83.33333%, #6b717f 83.33333%, #6b717f 91.66667%, #003366 91.66667%, #003366 100%);
+  z-index: 9999; }
+  .stripes.top {
+    top: 0; }
+  .stripes.bottom {
+    bottom: 0; }
+
+.logo {
+  background: none !important;
+  border: none !important;
+  width: 300px;
+  box-shadow: 0 !important;
+  -moz-box-shadow: 0 !important;
+  -webkit-box-shadow: 0 !important;
+  margin-bottom: 60px !important; }
+
+.sass {
+  width: 100px;
+  height: 75px;
+  background: url("../../../lib/img/sass-mini.png") 0 0 no-repeat;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  z-index: 9999; }
+
+pre {
+  background-color: #313131;
+  padding: 20px !important; }
+
+.middle {
+  width: 49%;
+  float: left;
+  margin: 0 0 0 1%; }
+  .middle h4 {
+    margin-bottom: 20px !important; }
+
+span.tag, span.unit {
+  color: #f92772; }
+span.property {
+  color: #66d9e7; }
+span.value, span.number {
+  color: #a47bf4; }
+span.key {
+  color: #fff; }
+span.var {
+  color: #f7ffb5; }
+span.class {
+  color: #8BDC19; }
+span.comment {
+  color: #606060; }
+span.par {
+  color: #ed7c1c; }
